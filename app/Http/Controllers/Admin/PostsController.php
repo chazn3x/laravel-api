@@ -198,6 +198,7 @@ class PostsController extends Controller
     public function destroy(Post $post)
     {
         // Cancellazione post
+        if ($post->image) Storage::delete($post->image);
         $post->delete();
 
         return redirect()->route('posts.index');
