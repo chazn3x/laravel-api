@@ -1,5 +1,7 @@
 // Font
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap');
+// Variables
+@import './_variables.scss';
 // Reset
 * {
     margin: 0;
@@ -9,6 +11,7 @@
 // Body
 body {
     font-family: 'Nunito', sans-serif;
+    background-color: rgb(233, 233, 233);
 }
 // Commons
 .container {
@@ -16,6 +19,17 @@ body {
     max-width: 1600px;
     padding: 0 2rem;
     margin: 0 auto;
+}
+.btn {
+    border: none;
+    border-radius: .4rem;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity .3s;
+    &:hover {
+        opacity: .8;
+    }
 }
 // Typo
 a {

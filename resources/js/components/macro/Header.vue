@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="header__right">
-                <a href="/admin/home" title="Area riservata">Area riservata</a>
+                <a href="/admin/home" title="Area riservata"><button class="btn">Area riservata</button></a>
             </div>
         </div>
     </header>
@@ -26,6 +26,11 @@ export default {
     padding: 1rem 0;
     background-color: $_blue;
     font-weight: 200;
+    box-shadow: 0 .3rem .3rem rgba(0, 0, 0, 0.3);
+    position: sticky;
+    z-index: 999;
+    top: 0;
+    left: 0;
     * {
         color: $_white;
     }
@@ -37,6 +42,10 @@ export default {
     &__left .title {
         font-weight: 200;
         font-size: 3rem;
+    }
+    &__right .btn {
+        background-color: $_darkBlue;
+        box-shadow: 0 0 .3rem $_darkBlue;
     }
 }
 </style>
