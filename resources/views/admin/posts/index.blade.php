@@ -79,6 +79,16 @@
                         <p class="card-text">
                             {{ substr( $post->content, 0, 100 ) . ( strlen( $post->content ) > 100 ? '...' : '' ) }}
                         </p>
+                        <p class="text-muted">
+                            Tags:
+                            @if ( count($post->tags) > 0 )
+                                @foreach ($post->tags as $tag)
+                                    <span class="badge badge-primary">{{ $tag->name }}</span>
+                                @endforeach
+                            @else
+                                <span> Nessuno</span>
+                            @endif
+                        </p>
                         <div class="d-flex justify-content-between align-items-center">
                             @if ($post->category)
                                 <span>Categoria: <a href="{{ route( 'categories.show', $post->category->id ) }}">{{ $post->category->name }}</a></span>
