@@ -31,7 +31,10 @@ export default {
 
 <style lang="scss" scoped>
 .main {
-    margin: 3rem 0;
+    margin: 1rem 0;
+    @media screen and (min-width: 768px) {
+        margin: 2rem 0;
+    }
     .posts-wrapper {
         background-color: #fff;
         padding: .5rem;

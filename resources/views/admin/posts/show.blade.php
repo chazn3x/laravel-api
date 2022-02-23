@@ -64,7 +64,7 @@
                         Categoria: {{ $post->category->name ?? 'Nessuna' }}
                     </p>
                     <img src="{{ $post->image ? asset("storage/$post->image") : 'http://placehold.jp/800x500.png' }}" class="img-fluid" alt="{{ $post->title }} cover">
-                    <p class="card-text">
+                    <p class="card-text mt-3">
                         {{ $post->content }}
                     </p>
                     <p class="text-muted">

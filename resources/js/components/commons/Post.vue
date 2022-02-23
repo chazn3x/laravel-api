@@ -51,8 +51,11 @@ export default {
         }
     }
     &.post__big {
-        width: 50%;
+        width: 100%;
         height: 400px;
+        @media screen and (min-width: 992px) {
+            width: 50%;
+        }
         .content {
             position: relative;
             background-color: black;
@@ -92,9 +95,15 @@ export default {
         }
     }
     &.post__small {
-        width: 25%;
+        width: 100%;
         height: 300px;
         margin-bottom: 3rem;
+        @media screen and (min-width: 576px) {
+            width: 50%;
+        }
+        @media screen and (min-width: 992px) {
+            width: 25%;
+        }
         .content {
             .cover {
                 width: 100%;

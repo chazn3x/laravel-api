@@ -166,6 +166,8 @@ class PostsController extends Controller
 
             }
 
+            $post->content = $data['content'];
+
             isset($data['category_id']) ? $post->category_id = $data['category_id'] : '';
 
             if ( isset($data['image']) ) {

@@ -14,8 +14,14 @@ body {
 .container {
   width: 100%;
   max-width: 1600px;
-  padding: 0 2rem;
+  padding: 0 1rem;
   margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
 }
 
 .btn {
