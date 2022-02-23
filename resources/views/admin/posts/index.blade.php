@@ -76,7 +76,8 @@
                     
                     <div class="card-body">
                         <h5 class="card-title">{{ $post->title }}</h5>
-                        <p class="card-text">
+                        <img src="{{ $post->image ? asset("storage/$post->image") : 'http://placehold.jp/800x500.png' }}" class="img-fluid" alt="{{ $post->title }} cover">
+                        <p class="card-text mt-3">
                             {{ substr( $post->content, 0, 100 ) . ( strlen( $post->content ) > 100 ? '...' : '' ) }}
                         </p>
                         <p class="text-muted">

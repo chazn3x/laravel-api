@@ -8,6 +8,7 @@ use App\Tag;
 use App\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -18,6 +19,7 @@ class PostsController extends Controller
         'content' => 'required|string',
         'category_id' => 'nullable|exists:categories,id',
         'tags' => 'nullable|exists:tags,id',
+        'image' => 'nullable|mimes:jpg,jpeg,png'
     ];
 
     /**
@@ -79,6 +81,11 @@ class PostsController extends Controller
         $newPost->slug = $slug;
 
         isset($data['category_id']) ? $newPost->category_id = $data['category_id'] : '';
+
+        if ( isset($data['image']) ) {
+            $path = Storage::put('uploads', $data['image']);
+            $newPost->image = $path;
+        }
 
         $newPost->save();
 
@@ -160,6 +167,12 @@ class PostsController extends Controller
             }
 
             isset($data['category_id']) ? $post->category_id = $data['category_id'] : '';
+
+            if ( isset($data['image']) ) {
+                if ($post->image) Storage::delete($post->image);
+                $path = Storage::put('uploads', $data['image']);
+                $post->image = $path;
+            }
             
         }
         

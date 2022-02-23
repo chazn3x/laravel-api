@@ -15,7 +15,7 @@
                 </div>
                 
                 <div class="card-body">
-                    <form id="_update" action="{{ route( 'posts.update', $post->id ) }}" method="POST">
+                    <form id="_update" action="{{ route( 'posts.update', $post->id ) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -33,6 +33,18 @@
                             <label for="content">Contenuto:</label>
                             <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" placeholder="Inserisci il contenuto" rows="6">{{ old('content') ?? $post->content }}</textarea>
                             @error('content')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        {{-- Immagine --}}
+                        <div class="form-group">
+                            <img id="image-preview" class="img-fluid" src="{{ $post->image ? asset("storage/$post->image") : 'http://placehold.jp/606060/ffffff/800x500.png?text=Image%20preview&css=%7B%22border-radius%22%3A%2215px%22%7D' }}" alt="preview image">
+                            <div class="custom-file mt-3">
+                                <label for="image" class="custom-file-label" id="image-title">{{ $post->image ? 'Modifica' : 'Aggiungi'}} immagine</label>
+                                <input type="file" name="image" id="image" class="custom-file-input">
+                            </div>
+                            @error('image')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>

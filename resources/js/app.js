@@ -38,3 +38,18 @@ if (document.getElementById('_back2')) {
         history.go(-2)
     })
 }
+
+// Image preview
+if (document.getElementById('image')) {
+    const img = document.getElementById('image')
+    const imgPreview = document.getElementById('image-preview')
+    const imgTitle = document.getElementById('image-title')
+    img.addEventListener('change', () => {
+        const [file] = img.files
+        if (file) {
+            console.log(file);
+            imgPreview.src = URL.createObjectURL(file)
+            imgTitle.innerHTML = file.name
+        }
+    })
+}
